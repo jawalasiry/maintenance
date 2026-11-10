@@ -1,0 +1,130 @@
+/* =====================================================
+   layout.css  -  القائمة الجانبية والشريط العلوي والهيكل العام
+   ===================================================== */
+
+/* في RTL أول عمود في الشبكة يظهر على اليمين = القائمة الجانبية */
+.shell {
+  display: grid;
+  grid-template-columns: 264px 1fr;
+  min-height: 100vh;
+}
+
+/* ---------- القائمة الجانبية ---------- */
+.sidebar {
+  position: sticky; top: 0; height: 100vh;
+  display: flex; flex-direction: column;
+  background: var(--surface);
+  border-left: 1px solid var(--border);
+  padding: 20px 16px;
+  overflow-y: auto;
+}
+
+.brand { display: flex; align-items: center; gap: 12px; padding: 4px 8px 20px; }
+.brand-logo {
+  width: 40px; height: 40px; border-radius: 12px;
+  background: var(--primary); color: #fff;
+  display: flex; align-items: center; justify-content: center; flex: none;
+}
+.brand-title { font-weight: 700; font-size: 15px; line-height: 1.3; }
+.brand-sub { font-size: 12px; color: var(--muted); }
+
+.nav-label { font-size: 12px; color: var(--muted); padding: 8px 12px; }
+
+.nav { display: flex; flex-direction: column; gap: 4px; }
+.nav-item {
+  display: flex; align-items: center; gap: 12px;
+  min-height: 44px; padding: 0 12px;
+  border-radius: 10px; border: 0; background: transparent;
+  color: var(--text); cursor: pointer; text-align: right; width: 100%;
+}
+.nav-item:hover { background: #F3F4F6; }
+.nav-item.active {
+  background: var(--primary-soft); color: var(--primary);
+  font-weight: 700; box-shadow: inset -3px 0 0 var(--primary);
+}
+
+.sidebar-bottom { margin-top: auto; padding-top: 16px; }
+.demo-clock {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 12px; color: var(--muted); padding: 8px 12px;
+}
+.user-card {
+  display: flex; align-items: center; gap: 12px;
+  padding: 12px; margin-top: 8px;
+  border: 1px solid var(--border); border-radius: 12px; background: #FAFAFA;
+}
+.avatar {
+  width: 36px; height: 36px; border-radius: 10px; flex: none;
+  background: #B45309; color: #fff; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+}
+.user-name { font-weight: 700; font-size: 14px; line-height: 1.3; }
+.user-role { font-size: 12px; color: var(--muted); }
+.logout {
+  display: flex; align-items: center; gap: 8px; margin-top: 8px;
+  width: 100%; min-height: 44px; padding: 0 12px;
+  border: 0; background: transparent; color: var(--muted);
+  border-radius: 10px; cursor: pointer; text-align: right;
+}
+.logout:hover { background: #FEF2F2; color: var(--danger); }
+
+/* ---------- المحتوى والشريط العلوي ---------- */
+.main { min-width: 0; display: flex; flex-direction: column; }
+
+.topbar {
+  position: sticky; top: 0; z-index: 20;
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  background: var(--surface); border-bottom: 1px solid var(--border);
+  padding: 12px 24px; min-height: 64px;
+}
+.topbar-start { display: flex; align-items: center; gap: 12px; }
+.topbar-sys { font-size: 12px; color: var(--muted); line-height: 1.2; }
+.topbar-title { font-size: 20px; font-weight: 700; line-height: 1.3; }
+.topbar-end { display: flex; align-items: center; gap: 12px; position: relative; }
+
+.date-chip {
+  display: flex; align-items: center; gap: 8px;
+  border: 1px solid var(--border); border-radius: 8px;
+  padding: 6px 12px; font-size: 13px; color: var(--muted);
+}
+
+.icon-btn {
+  position: relative; width: 44px; height: 44px;
+  display: inline-flex; align-items: center; justify-content: center;
+  border: 1px solid var(--border); border-radius: 10px;
+  background: #fff; color: var(--text); cursor: pointer;
+}
+.icon-btn:hover { background: #F3F4F6; }
+.bell-count {
+  position: absolute; top: -6px; left: -6px;
+  min-width: 20px; height: 20px; padding: 0 5px;
+  background: #DC2626; color: #fff; border-radius: 10px;
+  font-size: 12px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+}
+.menu-btn { display: none; }
+
+.content { width: 100%; max-width: 1040px; margin: 0 auto; padding: 24px; }
+
+.overlay { display: none; }
+
+/* ---------- الجوال والتابلت ---------- */
+@media (max-width: 900px) {
+  .shell { display: block; }
+
+  .sidebar {
+    position: fixed; top: 0; right: 0; bottom: 0; width: 280px; z-index: 40;
+    transform: translateX(100%); transition: transform .2s;
+  }
+  .sidebar.open { transform: translateX(0); }
+
+  .overlay.show {
+    display: block; position: fixed; inset: 0; z-index: 30;
+    background: rgba(17, 24, 39, .4);
+  }
+
+  .menu-btn { display: inline-flex; }
+  .date-chip { display: none; }
+  .topbar { padding: 8px 16px; }
+  .content { padding: 16px; }
+}

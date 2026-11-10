@@ -1,0 +1,66 @@
+/* =====================================================
+   base.css  -  الألوان والخطوط والأزرار والحقول
+   ===================================================== */
+
+:root {
+  --bg: #F7F8FA;
+  --surface: #FFFFFF;
+  --text: #1F2937;
+  --muted: #6B7280;
+  --border: #E5E7EB;
+  --primary: #0F766E;
+  --primary-dark: #0B5D57;
+  --primary-soft: #E6F4F2;
+  --danger: #B91C1C;
+}
+
+* { box-sizing: border-box; }
+
+html, body { margin: 0; padding: 0; }
+
+body {
+  font-family: 'IBM Plex Sans Arabic', 'Noto Sans Arabic', Tahoma, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+h1, h2, h3, p { margin: 0; }
+
+button, input, select, textarea { font-family: inherit; font-size: 16px; }
+
+/* النصوص والأكواد اللاتينية (المرجع، البريد) تبقى من اليسار لليمين */
+.ltr { direction: ltr; unicode-bidi: embed; display: inline-block; }
+.hidden { display: none !important; }
+
+/* الأيقونات */
+.ic {
+  width: 20px; height: 20px; flex: none;
+  stroke: currentColor; fill: none;
+  stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+}
+
+/* مؤشر التركيز للوحة المفاتيح (إمكانية الوصول) */
+:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+
+/* الأزرار */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: 44px; padding: 0 20px;
+  border-radius: 8px; border: 1px solid transparent;
+  font-weight: 500; cursor: pointer; transition: background .15s;
+}
+.btn-primary { background: var(--primary); color: #fff; }
+.btn-primary:hover { background: var(--primary-dark); }
+.btn-secondary { background: #fff; color: var(--text); border-color: var(--border); }
+.btn-secondary:hover { background: #F3F4F6; }
+.btn-block { width: 100%; }
+
+/* الحقول */
+.field-label { display: block; margin: 16px 0 8px; font-weight: 500; font-size: 15px; }
+.input {
+  width: 100%; min-height: 44px; padding: 0 12px;
+  border: 1px solid #D1D5DB; border-radius: 8px; background: #fff; color: var(--text);
+}
+.input:focus { border-color: var(--primary); }

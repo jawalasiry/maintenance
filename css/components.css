@@ -1,0 +1,175 @@
+/* =====================================================
+   components.css  -  البطاقات والقوائم والشارات والإشعارات والدخول
+   ===================================================== */
+
+/* ---------- بطاقة الترحيب ---------- */
+.welcome {
+  background: linear-gradient(135deg, #E6F4F2 0%, #F0FAF8 100%);
+  border: 1px solid #BFE3DE; border-radius: 16px;
+  padding: 24px; margin-bottom: 16px;
+  display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+}
+.eyebrow { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--primary); font-weight: 500; }
+.eyebrow .ic { width: 14px; height: 14px; }
+.welcome-title { font-size: 28px; font-weight: 700; margin: 4px 0; }
+.welcome-sub { color: var(--muted); font-size: 15px; }
+.welcome-side { display: flex; flex-direction: column; gap: 12px; align-items: flex-start; }
+
+/* ---------- بطاقات الإحصاءات ---------- */
+.stats { display: grid; gap: 16px; margin-bottom: 16px; }
+.stats-3 { grid-template-columns: repeat(3, 1fr); }
+.stats-4 { grid-template-columns: repeat(4, 1fr); }
+
+.stat {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
+  padding: 16px; cursor: pointer; transition: box-shadow .15s, border-color .15s;
+}
+.stat:hover { border-color: #BFE3DE; box-shadow: 0 2px 8px rgba(0,0,0,.05); }
+.stat-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+.stat-num { font-size: 30px; font-weight: 700; line-height: 1.1; }
+.stat-label { color: var(--muted); font-size: 14px; margin-top: 4px; }
+.stat-icon {
+  width: 40px; height: 40px; border-radius: 10px; flex: none;
+  display: flex; align-items: center; justify-content: center;
+}
+.stat-link { display: flex; align-items: center; gap: 4px; margin-top: 12px; font-size: 13px; color: var(--muted); }
+.stat-link .ic { width: 14px; height: 14px; }
+
+.tone-teal  { background: #E6F4F2; color: #0F766E; }
+.tone-gray  { background: #F3F4F6; color: #4B5563; }
+.tone-blue  { background: #DBEAFE; color: #1D4ED8; }
+.tone-amber { background: #FEF3C7; color: #B45309; }
+.tone-red   { background: #FEE2E2; color: #B91C1C; }
+.tone-green { background: #D1FAE5; color: #047857; }
+
+/* ---------- بطاقة القائمة ---------- */
+.card {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
+  padding: 20px; margin-bottom: 16px;
+}
+.card-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 8px; }
+.card-title { font-size: 18px; font-weight: 700; }
+.card-sub { color: var(--muted); font-size: 14px; }
+.link {
+  display: inline-flex; align-items: center; gap: 4px;
+  color: var(--primary); font-size: 14px; font-weight: 500; cursor: pointer;
+  background: none; border: 0; padding: 4px 0;
+}
+.link .ic { width: 14px; height: 14px; }
+
+.row {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 14px 4px; border-top: 1px solid var(--border);
+  cursor: pointer;
+}
+.row:first-of-type { margin-top: 8px; }
+.row:hover { background: #FAFAFA; }
+.row-static { cursor: default; }
+.row-static:hover { background: transparent; }
+.row-main { min-width: 0; }
+.ref { font-size: 12px; color: var(--primary); font-weight: 500; }
+.row-title { font-weight: 500; }
+.row-sub { font-size: 13px; color: var(--muted); }
+.row-side { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
+.row-action { font-size: 13px; color: var(--primary); display: inline-flex; align-items: center; gap: 4px; margin-inline-start: 8px; }
+.row-action .ic { width: 14px; height: 14px; }
+
+.empty { text-align: center; color: var(--muted); padding: 24px 8px; border-top: 1px solid var(--border); margin-top: 8px; }
+
+/* ---------- الشارات ---------- */
+.badge {
+  display: inline-block; padding: 2px 10px; border-radius: 999px;
+  font-size: 12px; font-weight: 500; white-space: nowrap;
+}
+/* الحالات: رمادي للجديد، أزرق للمراجعة والتنفيذ، كهرماني للانتظار، أخضر للمعالجة والمغلق */
+.st-new      { background: #F3F4F6; color: #374151; }
+.st-review   { background: #E0F2FE; color: #0369A1; }
+.st-progress { background: #DBEAFE; color: #1D4ED8; }
+.st-waiting  { background: #FEF3C7; color: #B45309; }
+.st-done     { background: #D1FAE5; color: #047857; }
+.st-closed   { background: #DCFCE7; color: #166534; }
+/* الأولويات */
+.pr-urgent { background: #FEE2E2; color: #B91C1C; }
+.pr-high   { background: #FFEDD5; color: #C2410C; }
+.pr-normal { background: #E5E7EB; color: #374151; }
+/* SLA */
+.sla-ok       { background: #D1FAE5; color: #047857; }
+.sla-near     { background: #FEF3C7; color: #B45309; }
+.sla-breached { background: #FEE2E2; color: #B91C1C; }
+.sla-paused   { background: #E0E7FF; color: #4338CA; }
+.sla-done     { background: #DCFCE7; color: #166534; }
+.sla-na       { background: #F3F4F6; color: #6B7280; }
+
+/* ---------- لوحة الإشعارات ---------- */
+.notif-panel {
+  position: absolute; top: 52px; left: 0; width: 360px; max-width: calc(100vw - 32px);
+  background: #fff; border: 1px solid var(--border); border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.12); z-index: 50; overflow: hidden;
+}
+.notif-head { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; border-bottom: 1px solid var(--border); font-weight: 700; }
+.notif-list { max-height: 360px; overflow-y: auto; }
+.notif-item {
+  display: flex; gap: 10px; padding: 12px 16px; border-bottom: 1px solid var(--border);
+  cursor: pointer; background: #fff; width: 100%; border-inline: 0; border-top: 0; text-align: right;
+}
+.notif-item:hover { background: #FAFAFA; }
+.notif-item.unread { background: #F0FAF8; }
+.notif-dot { width: 8px; height: 8px; border-radius: 50%; background: #DC2626; margin-top: 8px; flex: none; }
+.notif-dot.read { background: transparent; }
+.notif-title { font-size: 14px; font-weight: 500; }
+.notif-meta { font-size: 12px; color: var(--muted); }
+
+/* ---------- صفحة الدخول ---------- */
+.login-wrap { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 24px; }
+.login-card {
+  width: 100%; max-width: 480px; background: var(--surface);
+  border: 1px solid var(--border); border-radius: 16px; padding: 28px;
+}
+.login-brand { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+.login-title { font-size: 20px; font-weight: 700; line-height: 1.3; }
+.login-sub { font-size: 13px; color: var(--muted); }
+.pw { position: relative; }
+.pw .input { padding-inline-end: 48px; }
+.pw-toggle {
+  position: absolute; top: 0; left: 0; width: 44px; height: 44px;
+  background: none; border: 0; cursor: pointer; color: var(--muted);
+  display: flex; align-items: center; justify-content: center;
+}
+.form-error { color: var(--danger); font-size: 14px; margin-top: 12px; min-height: 20px; }
+.login-card .btn-block { margin-top: 8px; }
+.help-link { display: inline-block; margin-top: 16px; font-size: 14px; }
+.help-text {
+  margin-top: 8px; padding: 12px; font-size: 14px; color: var(--muted);
+  background: #F9FAFB; border-radius: 8px;
+}
+
+.demo { margin-top: 24px; padding-top: 20px; border-top: 1px dashed var(--border); }
+.demo-title { font-weight: 700; font-size: 15px; }
+.demo-note { font-size: 13px; color: var(--muted); margin: 4px 0 12px; }
+.demo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.demo-btn {
+  text-align: right; min-height: 44px; padding: 6px 12px;
+  background: #fff; border: 1px solid var(--border); border-radius: 10px; cursor: pointer;
+}
+.demo-btn:hover { background: var(--primary-soft); border-color: #BFE3DE; }
+.demo-name { font-size: 14px; font-weight: 500; line-height: 1.3; }
+.demo-role { font-size: 12px; color: var(--muted); }
+
+/* ---------- صفحة قيد البناء ---------- */
+.placeholder { text-align: center; padding: 48px 16px; }
+.placeholder .stat-icon { margin: 0 auto 16px; width: 56px; height: 56px; }
+.placeholder h2 { margin-bottom: 8px; }
+.placeholder p { color: var(--muted); margin-bottom: 20px; }
+
+/* ---------- الجوال ---------- */
+@media (max-width: 900px) {
+  .stats-3, .stats-4 { grid-template-columns: 1fr 1fr; }
+  .welcome-title { font-size: 24px; }
+  .row { flex-wrap: wrap; }
+  .row-side { justify-content: flex-start; }
+}
+@media (max-width: 520px) {
+  .stats-3, .stats-4 { grid-template-columns: 1fr; }
+  .demo-grid { grid-template-columns: 1fr; }
+  .login-card { padding: 20px; }
+}
